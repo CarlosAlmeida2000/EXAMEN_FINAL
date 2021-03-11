@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
         rcvRevistas.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         Map<String, String> datos = new HashMap<String, String>();
-        WebService ws= new WebService("https://revistas.uteq.edu.ec/ws/journals.php", datos, getApplicationContext(), this);
+        WebService ws= new WebService("https://revistas.uteq.edu.ec/ws/journals.php", datos, MainActivity.this, MainActivity.this);
         ws.execute("GET");
     }
 
     @Override
     public void processFinish(String result) throws JSONException {
-        ArrayList<Revista> lstRevista = new ArrayList<Revista> ();
+       ArrayList<Revista> lstRevista = new ArrayList<Revista> ();
         try {
             JSONArray JSONlistaContactos = new JSONArray(result);
             lstRevista = Revista.JsonObjectsBuild(JSONlistaContactos);

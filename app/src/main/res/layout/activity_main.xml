@@ -10,15 +10,7 @@
         android:id="@+id/rcvChats"
         android:layout_width="413dp"
         android:layout_height="686dp"
-        tools:layout_editor_absoluteY="45dp" />
-
-    <TextView
-        android:id="@+id/txtTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Revistas Científicas de la UTEQ"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/rcvChats"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

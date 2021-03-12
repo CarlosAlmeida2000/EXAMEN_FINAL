@@ -36,9 +36,13 @@ public class RevistaPlaceHolder {
     }
 
     @Resolve
-    protected void onResolved() throws JSONException {
-        this.nombre.setText(this.lstRevista.getString("name"));
-        this.descripcion.setText(this.lstRevista.getString("description"));
-        Glide.with(this.contexto).load(this.lstRevista.getString("portada")).into(this.img);
+    protected void onResolved(){
+        try{
+            this.nombre.setText(this.lstRevista.getString("name"));
+            this.descripcion.setText(this.lstRevista.getString("description"));
+            Glide.with(this.contexto).load(this.lstRevista.getString("portada")).into(this.img);
+        }catch (JSONException ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }

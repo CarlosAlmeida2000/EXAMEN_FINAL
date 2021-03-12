@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EXAMEN"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity_volumen"></activity>
+        <activity android:name=".Activity_articulos"></activity>
+        <activity android:name=".Activity_volumen" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

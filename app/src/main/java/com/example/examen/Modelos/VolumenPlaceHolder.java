@@ -1,11 +1,15 @@
 package com.example.examen.Modelos;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.examen.Activity_articulos;
 import com.example.examen.R;
+import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
@@ -35,14 +39,12 @@ public class VolumenPlaceHolder {
     @View(R.id.txtNumber)
     TextView number;
 
-    @View(R.id.txtIssue_id)
-    TextView ussue_id;
-
     @View(R.id.imgCover)
     ImageView cover;
 
     Context contexto;
     JSONObject lstVolumenes;
+    Intent changeActivity;
 
     public VolumenPlaceHolder(Context contexto, JSONObject lstVolumenes) {
         this.contexto = contexto;
@@ -57,9 +59,21 @@ public class VolumenPlaceHolder {
             this.volume.setText(lstVolumenes.getString("volume"));
             this.year.setText(lstVolumenes.getString("year"));
             this.number.setText(lstVolumenes.getString("number"));
-            this.ussue_id.setText(lstVolumenes.getString("ussue_id"));
             Glide.with(this.contexto).load(lstVolumenes.getString("cover")).into(this.cover);
         }catch (JSONException e){
+        }
+    }
+    @Click(R.id.tarjeta_volumen)
+    public void onClickTarjeta(){
+        changeActivity = new Intent(this.contexto, Activity_articulos.class);
+        changeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try{
+            Bundle b = new Bundle();
+            b.putString("issue_id", this.lstVolumenes.getString("issue_id"));
+            changeActivity.putExtras(b);
+            contexto.startActivity(changeActivity);
+        }catch (JSONException ex){
+            System.out.println(ex.getMessage());
         }
     }
 }

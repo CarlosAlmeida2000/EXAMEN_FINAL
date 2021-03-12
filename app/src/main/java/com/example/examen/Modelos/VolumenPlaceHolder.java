@@ -10,10 +10,8 @@ import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 @NonReusable
 @Layout(R.layout.volumen)
@@ -50,11 +48,9 @@ public class VolumenPlaceHolder {
         this.contexto = contexto;
         this.lstVolumenes = lstVolumenes;
     }
-
     @Resolve
     protected  void onResolved(){
         try {
-            Glide.with(this.contexto).load(lstVolumenes.getString("cover")).into(this.cover);
             this.title.setText(lstVolumenes.getString("title"));
             this.dataPublished.setText(lstVolumenes.getString("date_published"));
             this.doi.setText(lstVolumenes.getString("doi"));
@@ -62,7 +58,7 @@ public class VolumenPlaceHolder {
             this.year.setText(lstVolumenes.getString("year"));
             this.number.setText(lstVolumenes.getString("number"));
             this.ussue_id.setText(lstVolumenes.getString("ussue_id"));
-
+            Glide.with(this.contexto).load(lstVolumenes.getString("cover")).into(this.cover);
         }catch (JSONException e){
         }
     }

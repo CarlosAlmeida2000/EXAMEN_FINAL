@@ -51,14 +51,15 @@ public class RevistaPlaceHolder {
         }
     }
 
-    @Click(com.example.examen.R.id.tarjeta)
+    @Click(R.id.tarjeta)
     public void onClickTarjeta(){
-        changeActivity = new Intent(this.contexto.getApplicationContext(), Activity_volumen.class);
+        changeActivity = new Intent(this.contexto, Activity_volumen.class);
+        changeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         try{
             Bundle b = new Bundle();
             b.putString("journal_id", this.lstRevista.getString("journal_id"));
             changeActivity.putExtras(b);
-            this.contexto.startActivity(changeActivity);
+            contexto.startActivity(changeActivity);
         }catch (JSONException ex){
             System.out.println(ex.getMessage());
         }

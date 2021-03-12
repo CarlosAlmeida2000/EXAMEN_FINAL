@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:background="#E3E3E3">
+    android:background="#DDEFF1"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/imgCover"
-        android:layout_width="131dp"
-        android:layout_height="109dp"
-        android:background="@color/teal_200" />
+        android:layout_width="139dp"
+        android:layout_height="137dp"
+        android:background="@color/teal_700" />
 
     <TextView
         android:id="@+id/txtTitle"
@@ -18,8 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/imgCover"
-        android:textColor="#1E1E1E"
-        android:text="title" />
+        android:text="title"
+        android:textColor="#1E1E1E" />
 
     <TextView
         android:id="@+id/txtDataPublished"
@@ -31,8 +30,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/imgCover"
-        android:textColor="#1E1E1E"
-        android:text="DataPublished" />
+        android:text="published"
+        android:textColor="#1E1E1E" />
 
     <TextView
         android:id="@+id/txtDoi"
@@ -44,8 +43,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/imgCover"
-        android:textColor="#1E1E1E"
-        android:text="Doi"/>
+        android:text="doi"
+        android:textColor="#1E1E1E" />
 
     <TextView
         android:id="@+id/txtVolume"
@@ -57,8 +56,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/imgCover"
-        android:textColor="#1E1E1E"
-        android:text="Volume"/>
+        android:text="volume"
+        android:textColor="#1E1E1E" />
 
     <TextView
         android:id="@+id/txtYear"
@@ -70,8 +69,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/imgCover"
-        android:textColor="#1E1E1E"
-        android:text="Year"/>
+        android:text="year"
+        android:textColor="#1E1E1E" />
 
     <TextView
         android:id="@+id/txtNumber"
@@ -83,8 +82,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/imgCover"
-        android:textColor="#1E1E1E"
-        android:text="Number"/>
+        android:text="number"
+        android:textColor="#1E1E1E" />
 
     <TextView
         android:id="@+id/txtIssue_id"
@@ -96,7 +95,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/imgCover"
-        android:textColor="#1E1E1E"
-        android:text="issue_id"/>
+        android:text="issue_id"
+        android:textColor="#1E1E1E" />
 
 </RelativeLayout>

@@ -1,11 +1,14 @@
 package com.example.examen.Modelos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.examen.Activity_volumen;
 import com.example.examen.R;
+import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
@@ -29,6 +32,7 @@ public class RevistaPlaceHolder {
 
     Context contexto;
     JSONObject lstRevista;
+    Intent changeActivity;
 
     public RevistaPlaceHolder(Context contexto, JSONObject lstRevista) {
         this.contexto = contexto;
@@ -41,6 +45,17 @@ public class RevistaPlaceHolder {
             this.nombre.setText(this.lstRevista.getString("name"));
             this.descripcion.setText(this.lstRevista.getString("description"));
             Glide.with(this.contexto).load(this.lstRevista.getString("portada")).into(this.img);
+        }catch (JSONException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @Click(com.example.examen.R.id.tarjeta)
+    public void onClickTarjeta(){
+        changeActivity = new Intent(this.contexto, Activity_volumen.class);
+        try{
+            changeActivity.putExtra("volumen_id", this.lstRevista.getString("journal_id"));
+            this.contexto.startActivity(changeActivity);
         }catch (JSONException ex){
             System.out.println(ex.getMessage());
         }

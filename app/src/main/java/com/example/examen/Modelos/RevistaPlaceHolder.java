@@ -2,6 +2,7 @@ package com.example.examen.Modelos;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -52,9 +53,11 @@ public class RevistaPlaceHolder {
 
     @Click(com.example.examen.R.id.tarjeta)
     public void onClickTarjeta(){
-        changeActivity = new Intent(this.contexto, Activity_volumen.class);
+        changeActivity = new Intent(this.contexto.getApplicationContext(), Activity_volumen.class);
         try{
-            changeActivity.putExtra("volumen_id", this.lstRevista.getString("journal_id"));
+            Bundle b = new Bundle();
+            b.putString("journal_id", this.lstRevista.getString("journal_id"));
+            changeActivity.putExtras(b);
             this.contexto.startActivity(changeActivity);
         }catch (JSONException ex){
             System.out.println(ex.getMessage());

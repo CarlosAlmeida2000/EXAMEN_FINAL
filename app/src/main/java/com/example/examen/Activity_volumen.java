@@ -24,7 +24,8 @@ public class Activity_volumen extends AppCompatActivity implements Asynchtask {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volumen);
-        this.volumen_id = getIntent().getStringExtra("volumen_id");
+        Bundle b = this.getIntent().getExtras();
+        this.volumen_id = b.getString("journal_id");
         this.phv_Volumenes = findViewById(R.id.phv_volumenes);
         Map<String, String> datos = new HashMap<String, String>();
         WebService ws= new WebService("https://revistas.uteq.edu.ec/ws/issues.php?j_id="+this.volumen_id, datos, Activity_volumen.this, Activity_volumen.this);
